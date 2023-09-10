@@ -18,6 +18,7 @@
 
 h1 {
 	font-size: 50px;
+	margin-top: 50px;
 }
 h2 {
 	font-size: 50px;
@@ -37,7 +38,7 @@ h2 {
 	background-color: transparent;
 	width: 100px;
 	height: 100px;
-	margin: 5px;
+	margin: 15px;
 }
 .playButton:hover {
 	transform: scale(1.5, 1.5);
