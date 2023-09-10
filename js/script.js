@@ -4,7 +4,7 @@ let computerScore = 0;
 const resetButton = document.createElement("button");
 resetButton.id = "resetButton";
 resetButton.innerText = "Play Again";
-resetButton.style.display = "inline-block";
+resetButton.style.display = "block";
 
 const resultDiv = document.getElementById("result");
 const scoreDiv = document.getElementById("score");
@@ -17,24 +17,20 @@ buttons.forEach((button) =>
 
 function getComputerSelection() {
 	const choises = ["Rock", "Paper", "Scissors"];
-	const computerSelection =
-		choises[Math.floor(Math.random() * 3)];
-	return computerSelection;
+	const selection = choises[Math.floor(Math.random() * 3)];
+	return selection;
 }
 
 function playRound(e) {
 	const computerSelection = getComputerSelection();
-	const playerSelection = e.target.value;
+	const playerSelection = e.currentTarget.value;
 
 	if (playerSelection == computerSelection) {
 		resultDiv.textContent = "It's a tie!";
 	} else if (
-		(playerSelection == "Rock" &&
-			computerSelection == "Scissors") ||
-		(playerSelection == "Paper" &&
-			computerSelection == "Rock") ||
-		(playerSelection == "Scissors" &&
-			computerSelection == "Paper")
+		(playerSelection == "Rock" && computerSelection == "Scissors") ||
+		(playerSelection == "Paper" && computerSelection == "Rock") ||
+		(playerSelection == "Scissors" && computerSelection == "Paper")
 	) {
 		playerScore++;
 		resultDiv.textContent = `${playerSelection} beats ${computerSelection}, you win!`;
@@ -45,14 +41,14 @@ function playRound(e) {
 
 	scoreDiv.innerText = `Current score:\n ${playerScore} - ${computerScore}`;
 	if (playerScore == 5 || computerScore == 5) {
-		resultDiv.innerText = `GAME OVER\nFinal score:\n ${playerScore} - ${computerScore}\n `;
+		resultDiv.innerHTML = `<h2>GAME OVER</h2>\nFinal score:\n ${playerScore} - ${computerScore}\n `;
 		scoreDiv.innerText = ``;
 		buttons.forEach((button) => {
 			button.style.display = "none";
 		});
 
 		document.body.appendChild(resetButton);
-		resetButton.style.display = "inline-block";
+		resetButton.style.display = "block";
 		resetButton.addEventListener("click", resetGame);
 	}
 }
@@ -62,7 +58,7 @@ function resetGame() {
 		button.style.display = "inline-block";
 	});
 	resetButton.style.display = "none";
-	resultDiv.innerText = "";
+	resultDiv.innerHTML = "Choose your weapon to start the game.<br />Best out of 5 wins.";
 	playerScore = 0;
 	computerScore = 0;
 }

@@ -2,22 +2,30 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="styles/style.css" />
 		<title>Rock Paper Scissors</title>
 	</head>
 	<body>
-		<h1>ROCK PAPER SCISSORS</h1>
+		<div class="container">
+			<h1>ROCK PAPER SCISSORS</h1>
 
-		<button id="rock" value="Rock">ROCK</button>
-		<button id="paper" value="Paper">PAPER</button>
-		<button id="scissors" value="Scissors">SCISSORS</button>
+			<div class="buttonContainer">
+				<button class="playButton" id="rock" value="Rock">
+					<img src="images/rock.png" alt="rock" class="btnImg" />
+				</button>
+				<button class="playButton" id="paper" value="Paper">
+					<img src="images/paper.png" alt="paper" class="btnImg" />
+				</button>
+				<button class="playButton" id="scissors" value="Scissors">
+					<img src="images/scissors.png" alt="scissors" class="btnImg" />
+				</button>
+			</div>
 
-		<div id="result"></div>
+			<div id="result">Choose your weapon to start the game.<br />Best out of 5 wins.</div>
 
-		<div id="score"></div>
-
+			<div id="score"></div>
+		</div>
 		<script src="./js/script.js"></script>
 	</body>
 </html>
